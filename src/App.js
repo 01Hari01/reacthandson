@@ -1,13 +1,15 @@
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
-import VideoBackground from "./components/LandingPage";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
-  return (
-    <div className="App">
-      <VideoBackground/>
-
-    </div>
-  );
+    return (
+        <Router>
+            <div style={{display:"flex"}}>
+                <Navbar/>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
