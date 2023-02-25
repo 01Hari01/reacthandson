@@ -19,10 +19,10 @@ const Sidebar = ({ isOpen, toggle }) => {
                         <SidebarLink to="/">Home</SidebarLink>
                         <SidebarLink to="/about">About</SidebarLink>
                         <SidebarLink to="/contact">Contact</SidebarLink>
-                        <SidebarBtnWrap>
-                            <SidebarRoute to="/signin">Sign In</SidebarRoute>
-                        </SidebarBtnWrap>
                     </SidebarMenu>
+                    <SidebarBtnWrap>
+                        <SidebarRoute to="/signin">Sign In</SidebarRoute>
+                    </SidebarBtnWrap>
                     <FaTimes onClick={toggle} />
                 </SidebarWrapper>
             </SidebarContainer>
