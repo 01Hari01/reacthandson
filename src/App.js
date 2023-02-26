@@ -1,19 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from "./components/Navbar/Navbar";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/pages/Home';
 import About from "./components/pages/About";
-import Home from "./components/pages/Home";
+import Navbar from "./components/Navbar/Navbar";
+
 
 function App() {
     return (
         <Router>
-            <div style={{ display: 'flex' }}>
-                <Navbar />
-                <Switch>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/about" component={About} />
-                </Switch>
-            </div>
+            <Routes>
+                <Route path="/" element={<Navbar />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/home" element={<Home />} />
+            </Routes>
         </Router>
     );
 }
