@@ -1,37 +1,49 @@
-import React, { useState } from 'react';
-import { FaBars } from 'react-icons/fa';
-import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks } from './NavbarElements';
-import Sidebar from "./SideNavbar";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggleSidebar = () => {
-        setIsOpen(!isOpen);
-    };
-
     return (
-        <>
-            <Nav>
-                <NavbarContainer>
-                    <NavLogo to="/">Logo</NavLogo>
-                    <MobileIcon onClick={toggleSidebar}>
-                        <FaBars/>
-                    </MobileIcon>
-                    <NavMenu>
-                        <NavItem>
-                            <NavLinks to="/">Home</NavLinks>
-                        </NavItem>
-                        <NavItem>
-                            <NavLinks to="/about">About</NavLinks>
-                        </NavItem>
-                        <NavItem>
-                            <NavLinks to="/contact">Contact</NavLinks>
-                        </NavItem>
-                    </NavMenu>
-                </NavbarContainer>
-            </Nav>
-            <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar}/>
-        </>
+        <Nav>
+            <Logo>
+                <Link to="/">Logo</Link>
+            </Logo>
+            <NavLinks>
+                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/register">Register</NavLink>
+                <NavLink to="/movies">Movies</NavLink>
+                <NavLink to="/products">Products</NavLink>
+                <NavLink to="/about">Search</NavLink>
+            </NavLinks>
+        </Nav>
     );
-}
+};
+
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  height: 60px;
+  padding: 0 1rem;
+`;
+
+const Logo = styled.div`
+  font-weight: bold;
+  font-size: 1.5rem;
+  & > a {
+    text-decoration: none;
+    color: black;
+  }
+`;
+
+const NavLinks = styled.div`
+  display: flex;
+`;
+
+const NavLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  margin-right: 1rem;
+`;
+
 export default Navbar;
